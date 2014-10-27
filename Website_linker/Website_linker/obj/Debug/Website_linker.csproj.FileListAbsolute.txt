@@ -1,0 +1,9 @@
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\bin\Debug\Website_linker.exe.config
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\bin\Debug\Website_linker.exe
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\bin\Debug\Website_linker.pdb
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\obj\Debug\Website_linker.csprojResolveAssemblyReference.cache
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\obj\Debug\Website_linker.Form1.resources
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\obj\Debug\Website_linker.Properties.Resources.resources
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\obj\Debug\Website_linker.csproj.GenerateResource.Cache
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\obj\Debug\Website_linker.exe
+C:\Users\Anonymous\Documents\C# projects\Website_linker\Website_linker\obj\Debug\Website_linker.pdb
