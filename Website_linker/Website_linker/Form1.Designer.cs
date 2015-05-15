@@ -71,7 +71,7 @@
             // 
             // Check
             // 
-            this.Check.Location = new System.Drawing.Point(183, 56);
+            this.Check.Location = new System.Drawing.Point(387, 227);
             this.Check.Name = "Check";
             this.Check.Size = new System.Drawing.Size(75, 23);
             this.Check.TabIndex = 4;
@@ -85,7 +85,7 @@
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.Window;
             this.richTextBox1.Location = new System.Drawing.Point(16, 56);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(161, 194);
+            this.richTextBox1.Size = new System.Drawing.Size(365, 194);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "Testing box";
             // 

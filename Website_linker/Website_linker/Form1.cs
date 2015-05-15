@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Threading;
+using Website_linker.Support;
 
 namespace Website_linker
 {
@@ -26,8 +27,11 @@ namespace Website_linker
 
         private void Check_Click(object sender, EventArgs e)
         {
+            richTextBox1.ResetText();
             WebOne.Text = Proper_site(WebOne.Text);
             WebTwo.Text = Proper_site(WebTwo.Text);
+
+            DOWNLOAD(WebOne.Text);
         }
 
         //USER DEFINED UTILITY
@@ -60,15 +64,27 @@ namespace Website_linker
             return URL;
         }
 
-        public void DOWNLOAD(string HTML)
+        public void DOWNLOAD(string URL)
         {
             using (WebClient client = new WebClient()) // WebClient class inherits IDisposable
             {
                 // Or you can get the file content without saving it:
-                string SITE_ONE = client.DownloadString(WebOne.Text);
-                string SITE_TWO = client.DownloadString(WebTwo.Text);
+                string SITE = client.DownloadString(URL);
+
+                Parse(SITE, URL);
                 //...
             }
+
+            
         }
+
+        public void Parse(string Site,string URL)
+        {
+            foreach (LinkItem i in Websites.Find(Site,URL))
+            {
+                richTextBox1.Text = richTextBox1.Text +  i.ToString();
+            }
+        }   //parses and prints hrefs
+
     }
 }
