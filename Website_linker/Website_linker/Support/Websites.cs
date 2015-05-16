@@ -14,7 +14,7 @@ namespace Website_linker.Support
 
         public override string ToString()
         {
-            return Href + "\n\t"; //+ Text;
+            return Text + "\n\t"; //+ Text;
         }
     }
 
@@ -27,8 +27,7 @@ namespace Website_linker.Support
 
                 // 1.
                 // Find all matches in file.
-                MatchCollection m1 = Regex.Matches(file, @"(<a.*?>.*?</a>)",
-                    RegexOptions.Singleline);
+                MatchCollection m1 = Regex.Matches(file, @"(<a.*?>.*?</a>)",RegexOptions.Singleline);
 
                 // 2.
                 // Loop over each match.
@@ -39,8 +38,7 @@ namespace Website_linker.Support
 
                     // 3.
                     // Get href attribute.
-                    Match m2 = Regex.Match(value, @"href=\""(.*?)\""",
-                    RegexOptions.Singleline);
+                    Match m2 = Regex.Match(value, @"href=\""(.*?)\""",RegexOptions.Singleline);
                     if (m2.Success)
                     {
                         i.Href = m2.Groups[1].Value;
@@ -48,36 +46,48 @@ namespace Website_linker.Support
 
                     // 4.
                     // Remove inner tags from text.
-                    string t = Regex.Replace(value, @"\s*<.*?>\s*", "",
-                    RegexOptions.Singleline);
-                    i.Text = t;
+                    string t = Regex.Replace(value, @"\s*<.*?>\s*", "", RegexOptions.Singleline);
 
+                    if (i.Href.Length > 0)
+                    {
+                        if (i.Href[0] == '/')
+                        {
+                            int count = 0;
+                            int j = 0;
+                            for (j = 0; j < i.Href.Length; j++)
+                            {
+                                if ('/' == i.Href[j])
+                                {
+                                    count++;
+                                }
+                            }
+
+                            for (j = URL.Length-1; j >= 0; j--)
+                            {
+                                if (count != 0)
+                                {
+                                    if (URL[j] == '/')
+                                    {
+                                        count++;
+                                        URL.Remove(URL.Length - 1);
+                                    }
+                                    URL.Remove(URL.Length - 1);
+                                }
+                            }
+                            t = URL + i.Href;
+                            i.Text = t;
+                        }//forms links for internal links
+                        else
+                        {
+                            i.Text = i.Href;
+                        }   //prints external links
+                    }   
+                    
                     list.Add(i);
                 }
+
                 return list;
             }   //end of list
 
-            private string internal_page(string URL, string HREF)
-            {
-                int count = 0;
-                int i = 0;
-                for (i = 0; i < HREF.Length; i++)
-                {
-                    if('/' == HREF[i])
-                    {
-                        count++;
-                    }
-                }
-
-                for (i = URL.Length; i == 0; i-- )
-                {
-                    if(count != 0)
-                    {
-                        URL.
-                    }
-                }
-
-                    return URL;
-            }
     }
 }
